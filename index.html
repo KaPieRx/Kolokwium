@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <div class="upcell" v-for="rows in rows">
-            <div class="cell" v-for="columns in columns">
+            <div class="cell" v-for="columns in columns" :class="{active : (active,1) === rows && (active,1) === columns}">
                 <p>{{ rows }},{{ columns }}</p>
             </div>
         </div>
@@ -32,6 +32,10 @@
             margin-bottom: 10px;
             margin-right: 10px;
         }
+        .cell.active{
+            background-color: red;
+            color: white;
+        }
     </style>
 
     <script>
@@ -41,6 +45,7 @@
                 message: 'Powodzenia',
                 rows: 10,
                 columns: 10,
+                active: "1,1",
             }
         })
     </script>
