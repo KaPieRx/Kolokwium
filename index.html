@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Kolokwium</title>
     <script src="https://unpkg.com/vue"></script>
 </head>
+
 <body>
     <div id="app">
-        {{ message }}
-        <div class="cell">
-            <p>1</p>
+        <div class="upcell" v-for="rows in rows">
+            <div class="cell" v-for="columns in columns">
+                <p>{{ rows }},{{ columns }}</p>
+            </div>
         </div>
     </div>
 
     <style>
-        .cell
-        {
+        .upcell{
+            display: flex;
+            flex-direction: row;
+        }
+        .cell {
             display: flex;
             justify-content: center;
             align-content: center;
@@ -29,12 +35,15 @@
     </style>
 
     <script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            message: 'Powodzenia'
-        }
-    })
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Powodzenia',
+                rows: 10,
+                columns: 10,
+            }
+        })
     </script>
 </body>
+
 </html>
